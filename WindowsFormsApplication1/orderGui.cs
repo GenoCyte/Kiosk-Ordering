@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -21,6 +22,8 @@ namespace WindowsFormsApplication1
         checkOut co = new checkOut();
         private dinetakePanel dtPanel;
         public int dineLoc = 0;
+        private string selectedProductId = "";
+        int currentQuantity = 1;
 
         public orderGui(dinetakePanel dt)
         {
@@ -36,6 +39,7 @@ namespace WindowsFormsApplication1
             {
                 dineLocLabel.Text = "Take-Out";
             }
+            changePanel.Hide();
             ddPanel.Hide();
             totalOrderShow();
         }
@@ -58,44 +62,92 @@ namespace WindowsFormsApplication1
 
         private void ramenBtn1_Click(object sender, EventArgs e)
         {
-            btn.btn1(dineLoc);
-            totalOrderShow();
+            changePanel.Show();
+            changeQuantity("r1");
         }
 
         private void ramenBtn2_Click(object sender, EventArgs e)
         {
-            btn.btn2(dineLoc);
-            totalOrderShow();
+            changePanel.Show();
+            changeQuantity("r2");
         }
 
         private void ramenBtn3_Click(object sender, EventArgs e)
         {
-            btn.btn3(dineLoc);
-            totalOrderShow();
+            changePanel.Show();
+            changeQuantity("r3");
         }
 
         private void ramenBtn4_Click(object sender, EventArgs e)
         {
-            btn.btn4(dineLoc);
-            totalOrderShow();
+            changePanel.Show();
+            changeQuantity("r4");
         }
 
         private void ramenBtn5_Click(object sender, EventArgs e)
         {
-            btn.btn5(dineLoc);
-            totalOrderShow();
+            changePanel.Show();
+            changeQuantity("r5");
         }
 
         private void ramenBtn6_Click(object sender, EventArgs e)
         {
-            btn.btn6(dineLoc);
-            totalOrderShow();
+            changePanel.Show();
+            changeQuantity("r6");
         }
 
         private void ramenBtn7_Click(object sender, EventArgs e)
         {
-            btn.btn7(dineLoc);
-            totalOrderShow();
+            changePanel.Show();
+            changeQuantity("r7");
+        }
+
+        private void changeQuantity(string productId)
+        {
+            selectedProductId = productId;
+            string connStr = "Server=localhost;Database=pos_database;Uid=root;Pwd=;";
+            using (MySqlConnection conn = new MySqlConnection(connStr))
+            {
+                string query = @"
+                    SELECT name, price, picture
+                    FROM ramen_product
+                    WHERE productId = @productId";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@productId", productId);
+                conn.Open();
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string product = reader["name"].ToString();
+                        decimal price = Convert.ToDecimal(reader["price"]);
+
+                        if (reader["picture"] != DBNull.Value)
+                        {
+                            byte[] imageBytes = (byte[])reader["picture"];
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                productImage.Image = Image.FromStream(ms);
+                                productImage.SizeMode = PictureBoxSizeMode.Zoom;
+                            }
+                        }
+                        else
+                        {
+                            productImage.Image = Properties.Resources.PlaceHolder;
+                        }
+
+                        productName.Text = product;
+                        productPrice.Text = "₱" + price.ToString("F2");
+                        qty.Text = currentQuantity.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Product not found.");
+                    }
+                }
+            }
         }
 
         private void totalOrderShow() {
@@ -183,6 +235,59 @@ namespace WindowsFormsApplication1
             co.CheckOut();
             co.DeleteOrderTable();
             OnSwitchToTy?.Invoke();
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            currentQuantity++;
+            qty.Text = currentQuantity.ToString();
+        }
+
+        private void subBtn_Click(object sender, EventArgs e)
+        {
+            if (currentQuantity > 1)
+                currentQuantity--;
+            qty.Text = currentQuantity.ToString();
+        }
+
+        private void addItemBtn_Click(object sender, EventArgs e)
+        {
+            switch (selectedProductId)
+            {
+                case "r1":
+                    btn.btn1(dineLoc, currentQuantity);
+                    break;
+                case "r2":
+                    btn.btn2(dineLoc, currentQuantity);
+                    break;
+                case "r3":
+                    btn.btn3(dineLoc, currentQuantity);
+                    break;
+                case "r4":
+                    btn.btn4(dineLoc, currentQuantity);
+                    break;
+                case "r5":
+                    btn.btn5(dineLoc, currentQuantity);
+                    break;
+                case "r6":
+                    btn.btn6(dineLoc, currentQuantity);
+                    break;
+                case "r7":
+                    btn.btn7(dineLoc, currentQuantity);
+                    break;
+                default:
+                    MessageBox.Show("Unknown product selected.");
+                    return;
+            }
+
+            totalOrderShow();
+            changePanel.Hide();
+            currentQuantity = 1;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            changePanel.Hide();
         }
     }
 }

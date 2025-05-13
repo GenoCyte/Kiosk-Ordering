@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
+using System.Drawing;
 
 namespace WindowsFormsApplication1
 {
     class ramenButtonFunction
     {
-        int orderID = 1;
-
-        public void btn1(int dineLoc)
+        public void btn1(int dineLoc, int qty)
         {
             try
             {
@@ -71,15 +71,14 @@ namespace WindowsFormsApplication1
                         else
                         {
                             // Product not in ordertable — insert new
-                            string insertQuery = "INSERT INTO ordertable (orderID, productID, product, price, quantity, subTotal, dine_loc) VALUES (@orderID, @productID, @name, @price, @qty, @sub, @dine)";
+                            string insertQuery = "INSERT INTO ordertable (productID, product, price, quantity, subTotal, dine_loc) VALUES (@productID, @name, @price, @qty, @sub, @dine)";
                             using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
                             {
-                                insertCmd.Parameters.AddWithValue("@orderID", orderID);
                                 insertCmd.Parameters.AddWithValue("@productID", productID);
                                 insertCmd.Parameters.AddWithValue("@name", productName);
                                 insertCmd.Parameters.AddWithValue("@price", productPrice);
-                                insertCmd.Parameters.AddWithValue("@qty", 1);
-                                insertCmd.Parameters.AddWithValue("@sub", productPrice * 1);
+                                insertCmd.Parameters.AddWithValue("@qty", qty);
+                                insertCmd.Parameters.AddWithValue("@sub", productPrice * qty);
                                 insertCmd.Parameters.AddWithValue("@dine", dineLoc);
                                 insertCmd.ExecuteNonQuery();
                             }
@@ -95,7 +94,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void btn2(int dineLoc)
+        public void btn2(int dineLoc, int qty)
         {
             try
             {
@@ -154,15 +153,14 @@ namespace WindowsFormsApplication1
                         else
                         {
                             // Product not in ordertable — insert new
-                            string insertQuery = "INSERT INTO ordertable (orderID, productID, product, price, quantity, subTotal, dine_loc) VALUES (@orderID, @productID, @name, @price, @qty, @sub, @dine)";
+                            string insertQuery = "INSERT INTO ordertable (productID, product, price, quantity, subTotal, dine_loc) VALUES (@productID, @name, @price, @qty, @sub, @dine)";
                             using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
                             {
-                                insertCmd.Parameters.AddWithValue("@orderID", orderID);
                                 insertCmd.Parameters.AddWithValue("@productID", productID);
                                 insertCmd.Parameters.AddWithValue("@name", productName);
                                 insertCmd.Parameters.AddWithValue("@price", productPrice);
-                                insertCmd.Parameters.AddWithValue("@qty", 1);
-                                insertCmd.Parameters.AddWithValue("@sub", productPrice * 1);
+                                insertCmd.Parameters.AddWithValue("@qty", qty);
+                                insertCmd.Parameters.AddWithValue("@sub", productPrice * qty);
                                 insertCmd.Parameters.AddWithValue("@dine", dineLoc);
                                 insertCmd.ExecuteNonQuery();
                             }
@@ -178,7 +176,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void btn3(int dineLoc)
+        public void btn3(int dineLoc, int qty)
         {
             try
             {
@@ -237,15 +235,14 @@ namespace WindowsFormsApplication1
                         else
                         {
                             // Product not in ordertable — insert new
-                            string insertQuery = "INSERT INTO ordertable (orderID, productID, product, price, quantity, subTotal, dine_loc) VALUES (@orderID, @productID, @name, @price, @qty, @sub, @dine)";
+                            string insertQuery = "INSERT INTO ordertable (productID, product, price, quantity, subTotal, dine_loc) VALUES (@productID, @name, @price, @qty, @sub, @dine)";
                             using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
                             {
-                                insertCmd.Parameters.AddWithValue("@orderID", orderID);
                                 insertCmd.Parameters.AddWithValue("@productID", productID);
                                 insertCmd.Parameters.AddWithValue("@name", productName);
                                 insertCmd.Parameters.AddWithValue("@price", productPrice);
-                                insertCmd.Parameters.AddWithValue("@qty", 1);
-                                insertCmd.Parameters.AddWithValue("@sub", productPrice * 1);
+                                insertCmd.Parameters.AddWithValue("@qty", qty);
+                                insertCmd.Parameters.AddWithValue("@sub", productPrice * qty);
                                 insertCmd.Parameters.AddWithValue("@dine", dineLoc);
                                 insertCmd.ExecuteNonQuery();
                             }
@@ -261,7 +258,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void btn4(int dineLoc)
+        public void btn4(int dineLoc, int qty)
         {
             try
             {
@@ -320,15 +317,14 @@ namespace WindowsFormsApplication1
                         else
                         {
                             // Product not in ordertable — insert new
-                            string insertQuery = "INSERT INTO ordertable (orderID, productID, product, price, quantity, subTotal, dine_loc) VALUES (@orderID, @productID, @name, @price, @qty, @sub, @dine)";
+                            string insertQuery = "INSERT INTO ordertable (productID, product, price, quantity, subTotal, dine_loc) VALUES (@productID, @name, @price, @qty, @sub, @dine)";
                             using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
                             {
-                                insertCmd.Parameters.AddWithValue("@orderID", orderID);
                                 insertCmd.Parameters.AddWithValue("@productID", productID);
                                 insertCmd.Parameters.AddWithValue("@name", productName);
                                 insertCmd.Parameters.AddWithValue("@price", productPrice);
-                                insertCmd.Parameters.AddWithValue("@qty", 1);
-                                insertCmd.Parameters.AddWithValue("@sub", productPrice * 1);
+                                insertCmd.Parameters.AddWithValue("@qty", qty);
+                                insertCmd.Parameters.AddWithValue("@sub", productPrice * qty);
                                 insertCmd.Parameters.AddWithValue("@dine", dineLoc);
                                 insertCmd.ExecuteNonQuery();
                             }
@@ -344,7 +340,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void btn5(int dineLoc)
+        public void btn5(int dineLoc, int qty)
         {
             try
             {
@@ -403,15 +399,14 @@ namespace WindowsFormsApplication1
                         else
                         {
                             // Product not in ordertable — insert new
-                            string insertQuery = "INSERT INTO ordertable (orderID, productID, product, price, quantity, subTotal, dine_loc) VALUES (@orderID, @productID, @name, @price, @qty, @sub, @dine)";
+                            string insertQuery = "INSERT INTO ordertable (productID, product, price, quantity, subTotal, dine_loc) VALUES (@productID, @name, @price, @qty, @sub, @dine)";
                             using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
                             {
-                                insertCmd.Parameters.AddWithValue("@orderID", orderID);
                                 insertCmd.Parameters.AddWithValue("@productID", productID);
                                 insertCmd.Parameters.AddWithValue("@name", productName);
                                 insertCmd.Parameters.AddWithValue("@price", productPrice);
-                                insertCmd.Parameters.AddWithValue("@qty", 1);
-                                insertCmd.Parameters.AddWithValue("@sub", productPrice * 1);
+                                insertCmd.Parameters.AddWithValue("@qty", qty);
+                                insertCmd.Parameters.AddWithValue("@sub", productPrice * qty);
                                 insertCmd.Parameters.AddWithValue("@dine", dineLoc);
                                 insertCmd.ExecuteNonQuery();
                             }
@@ -427,7 +422,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void btn6(int dineLoc)
+        public void btn6(int dineLoc, int qty)
         {
             try
             {
@@ -486,15 +481,14 @@ namespace WindowsFormsApplication1
                         else
                         {
                             // Product not in ordertable — insert new
-                            string insertQuery = "INSERT INTO ordertable (orderID, productID, product, price, quantity, subTotal, dine_loc) VALUES (@orderID, @productID, @name, @price, @qty, @sub, @dine)";
+                            string insertQuery = "INSERT INTO ordertable (productID, product, price, quantity, subTotal, dine_loc) VALUES (@productID, @name, @price, @qty, @sub, @dine)";
                             using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
                             {
-                                insertCmd.Parameters.AddWithValue("@orderID", orderID);
                                 insertCmd.Parameters.AddWithValue("@productID", productID);
                                 insertCmd.Parameters.AddWithValue("@name", productName);
                                 insertCmd.Parameters.AddWithValue("@price", productPrice);
-                                insertCmd.Parameters.AddWithValue("@qty", 1);
-                                insertCmd.Parameters.AddWithValue("@sub", productPrice * 1);
+                                insertCmd.Parameters.AddWithValue("@qty", qty);
+                                insertCmd.Parameters.AddWithValue("@sub", productPrice * qty);
                                 insertCmd.Parameters.AddWithValue("@dine", dineLoc);
                                 insertCmd.ExecuteNonQuery();
                             }
@@ -510,7 +504,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void btn7(int dineLoc)
+        public void btn7(int dineLoc, int qty)
         {
             try
             {
@@ -569,15 +563,14 @@ namespace WindowsFormsApplication1
                         else
                         {
                             // Product not in ordertable — insert new
-                            string insertQuery = "INSERT INTO ordertable (orderID, productID, product, price, quantity, subTotal, dine_loc) VALUES (@orderID, @productID, @name, @price, @qty, @sub, @dine)";
+                            string insertQuery = "INSERT INTO ordertable (productID, product, price, quantity, subTotal, dine_loc) VALUES (@productID, @name, @price, @qty, @sub, @dine)";
                             using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
                             {
-                                insertCmd.Parameters.AddWithValue("@orderID", orderID);
                                 insertCmd.Parameters.AddWithValue("@productID", productID);
                                 insertCmd.Parameters.AddWithValue("@name", productName);
                                 insertCmd.Parameters.AddWithValue("@price", productPrice);
-                                insertCmd.Parameters.AddWithValue("@qty", 1);
-                                insertCmd.Parameters.AddWithValue("@sub", productPrice * 1);
+                                insertCmd.Parameters.AddWithValue("@qty", qty);
+                                insertCmd.Parameters.AddWithValue("@sub", productPrice * qty);
                                 insertCmd.Parameters.AddWithValue("@dine", dineLoc);
                                 insertCmd.ExecuteNonQuery();
                             }

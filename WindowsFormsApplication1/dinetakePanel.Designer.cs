@@ -53,7 +53,6 @@
             this.dineinBtn.Name = "dineinBtn";
             this.dineinBtn.Size = new System.Drawing.Size(256, 310);
             this.dineinBtn.TabIndex = 1;
-            this.dineinBtn.Text = "button1";
             this.dineinBtn.UseVisualStyleBackColor = true;
             this.dineinBtn.Click += new System.EventHandler(this.dineinBtn_Click);
             // 

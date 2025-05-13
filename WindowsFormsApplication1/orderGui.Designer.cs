@@ -66,11 +66,22 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.dineLocLabel = new System.Windows.Forms.Label();
+            this.changePanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.addItemBtn = new System.Windows.Forms.Button();
+            this.qty = new System.Windows.Forms.Label();
+            this.subBtn = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.productPrice = new System.Windows.Forms.Label();
+            this.productName = new System.Windows.Forms.Label();
+            this.productImage = new System.Windows.Forms.PictureBox();
             this.orderHeader.SuspendLayout();
             this.totalOrderPanel.SuspendLayout();
             this.noOrdersPanel.SuspendLayout();
             this.ramenPanel.SuspendLayout();
             this.ddPanel.SuspendLayout();
+            this.changePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productImage)).BeginInit();
             this.SuspendLayout();
             // 
             // bannerPanel
@@ -206,7 +217,7 @@
             // 
             this.noOrdersPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.noOrdersPanel.Controls.Add(this.label11);
-            this.noOrdersPanel.Location = new System.Drawing.Point(4, 573);
+            this.noOrdersPanel.Location = new System.Drawing.Point(5, 573);
             this.noOrdersPanel.Name = "noOrdersPanel";
             this.noOrdersPanel.Size = new System.Drawing.Size(672, 100);
             this.noOrdersPanel.TabIndex = 10;
@@ -364,7 +375,6 @@
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(100, 100);
             this.button15.TabIndex = 25;
-            this.button15.Text = "RAMEN";
             this.button15.UseVisualStyleBackColor = true;
             // 
             // button14
@@ -373,7 +383,6 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(100, 100);
             this.button14.TabIndex = 24;
-            this.button14.Text = "RAMEN";
             this.button14.UseVisualStyleBackColor = true;
             // 
             // button13
@@ -382,7 +391,6 @@
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(100, 100);
             this.button13.TabIndex = 23;
-            this.button13.Text = "RAMEN";
             this.button13.UseVisualStyleBackColor = true;
             // 
             // button12
@@ -391,7 +399,6 @@
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(100, 100);
             this.button12.TabIndex = 22;
-            this.button12.Text = "RAMEN";
             this.button12.UseVisualStyleBackColor = true;
             // 
             // button11
@@ -400,7 +407,6 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(100, 100);
             this.button11.TabIndex = 21;
-            this.button11.Text = "RAMEN";
             this.button11.UseVisualStyleBackColor = true;
             // 
             // button10
@@ -409,7 +415,6 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(100, 100);
             this.button10.TabIndex = 20;
-            this.button10.Text = "RAMEN";
             this.button10.UseVisualStyleBackColor = true;
             // 
             // button9
@@ -418,7 +423,6 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 100);
             this.button9.TabIndex = 19;
-            this.button9.Text = "RAMEN";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -450,10 +454,114 @@
             this.dineLocLabel.TabIndex = 11;
             this.dineLocLabel.Text = "zxz";
             // 
+            // changePanel
+            // 
+            this.changePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.changePanel.Controls.Add(this.button1);
+            this.changePanel.Controls.Add(this.addItemBtn);
+            this.changePanel.Controls.Add(this.qty);
+            this.changePanel.Controls.Add(this.subBtn);
+            this.changePanel.Controls.Add(this.addBtn);
+            this.changePanel.Controls.Add(this.productPrice);
+            this.changePanel.Controls.Add(this.productName);
+            this.changePanel.Controls.Add(this.productImage);
+            this.changePanel.Location = new System.Drawing.Point(0, 356);
+            this.changePanel.Name = "changePanel";
+            this.changePanel.Size = new System.Drawing.Size(682, 180);
+            this.changePanel.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
+            this.button1.Location = new System.Drawing.Point(613, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(51, 46);
+            this.button1.TabIndex = 7;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // addItemBtn
+            // 
+            this.addItemBtn.BackColor = System.Drawing.Color.Red;
+            this.addItemBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addItemBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.addItemBtn.Location = new System.Drawing.Point(549, 108);
+            this.addItemBtn.Name = "addItemBtn";
+            this.addItemBtn.Size = new System.Drawing.Size(90, 35);
+            this.addItemBtn.TabIndex = 6;
+            this.addItemBtn.Text = "Add";
+            this.addItemBtn.UseVisualStyleBackColor = false;
+            this.addItemBtn.Click += new System.EventHandler(this.addItemBtn_Click);
+            // 
+            // qty
+            // 
+            this.qty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.qty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.qty.Location = new System.Drawing.Point(229, 108);
+            this.qty.Name = "qty";
+            this.qty.Size = new System.Drawing.Size(86, 35);
+            this.qty.TabIndex = 5;
+            this.qty.Text = "0";
+            this.qty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // subBtn
+            // 
+            this.subBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subBtn.Location = new System.Drawing.Point(191, 108);
+            this.subBtn.Name = "subBtn";
+            this.subBtn.Size = new System.Drawing.Size(35, 35);
+            this.subBtn.TabIndex = 4;
+            this.subBtn.Text = "-";
+            this.subBtn.UseVisualStyleBackColor = true;
+            this.subBtn.Click += new System.EventHandler(this.subBtn_Click);
+            // 
+            // addBtn
+            // 
+            this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.Location = new System.Drawing.Point(321, 108);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(35, 35);
+            this.addBtn.TabIndex = 3;
+            this.addBtn.Text = "+";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // productPrice
+            // 
+            this.productPrice.AutoSize = true;
+            this.productPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productPrice.Location = new System.Drawing.Point(186, 64);
+            this.productPrice.Name = "productPrice";
+            this.productPrice.Size = new System.Drawing.Size(60, 24);
+            this.productPrice.TabIndex = 2;
+            this.productPrice.Text = "label8";
+            // 
+            // productName
+            // 
+            this.productName.AutoSize = true;
+            this.productName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productName.Location = new System.Drawing.Point(186, 23);
+            this.productName.Name = "productName";
+            this.productName.Size = new System.Drawing.Size(70, 25);
+            this.productName.TabIndex = 1;
+            this.productName.Text = "label8";
+            // 
+            // productImage
+            // 
+            this.productImage.Location = new System.Drawing.Point(21, 23);
+            this.productImage.Name = "productImage";
+            this.productImage.Size = new System.Drawing.Size(130, 130);
+            this.productImage.TabIndex = 0;
+            this.productImage.TabStop = false;
+            // 
             // orderGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.changePanel);
             this.Controls.Add(this.dineLocLabel);
             this.Controls.Add(this.noOrdersPanel);
             this.Controls.Add(this.ddPanel);
@@ -478,6 +586,9 @@
             this.ramenPanel.PerformLayout();
             this.ddPanel.ResumeLayout(false);
             this.ddPanel.PerformLayout();
+            this.changePanel.ResumeLayout(false);
+            this.changePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,5 +632,14 @@
         private System.Windows.Forms.Panel noOrdersPanel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label dineLocLabel;
+        private System.Windows.Forms.Panel changePanel;
+        private System.Windows.Forms.PictureBox productImage;
+        private System.Windows.Forms.Label productPrice;
+        private System.Windows.Forms.Label productName;
+        private System.Windows.Forms.Button addItemBtn;
+        private System.Windows.Forms.Label qty;
+        private System.Windows.Forms.Button subBtn;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button button1;
     }
 }

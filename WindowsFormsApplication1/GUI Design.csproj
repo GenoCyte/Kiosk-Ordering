@@ -97,6 +97,12 @@
     <Compile Include="thankyouPanel.Designer.cs">
       <DependentUpon>thankyouPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReceiptControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReceiptControl.Designer.cs">
+      <DependentUpon>ReceiptControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="dinetakePanel.resx">
       <DependentUpon>dinetakePanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="thankyouPanel.resx">
       <DependentUpon>thankyouPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceiptControl.resx">
+      <DependentUpon>ReceiptControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

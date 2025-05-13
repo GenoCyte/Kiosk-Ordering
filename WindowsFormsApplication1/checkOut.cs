@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
                 conn.Open();
-                string query = "SELECT orderID, productID, product, quantity, subTotal, dine_loc FROM ordertable";
+                string query = "SELECT productID, product, quantity, subTotal, dine_loc FROM ordertable";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -63,7 +63,6 @@ namespace WindowsFormsApplication1
                     while (reader.Read())
                     {
                         items order = new items();
-                        order.orderID = Convert.ToInt32(reader["orderID"]);
                         order.productID = reader["productID"].ToString();
                         order.productName = reader["product"].ToString();
                         order.quantity = Convert.ToInt32(reader["quantity"]);
@@ -76,10 +75,44 @@ namespace WindowsFormsApplication1
             }
         }
 
+        public int FindAvailableID(int order_id)
+        {
+            List<int> usedIds = new List<int>();
+            string connStr = "Server=localhost;Database=pos_database;Uid=root;Pwd=;";
+
+            using (MySqlConnection conn = new MySqlConnection(connStr))
+            {
+                conn.Open();
+                string query = "SELECT orderID FROM current_order";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        usedIds.Add(reader.GetInt32(0));
+                    }
+                }
+            }
+
+            // Find the first missing number starting from 1
+            int current = 1;
+            HashSet<int> usedSet = new HashSet<int>(usedIds);
+
+            while (usedSet.Contains(current))
+            {
+                current++;
+            }
+
+            return current;
+        }
+
         // Method to insert the orders into another table (current_order)
         public void CheckOut()
         {
             TimeSpan currentTime = DateTime.Now.TimeOfDay;
+            items orderID = new items();
+            int availableID = FindAvailableID(orderID.orderID);
             string connStr = "Server=localhost;Database=pos_database;Uid=root;Pwd=;";
 
             using (MySqlConnection conn = new MySqlConnection(connStr))
@@ -93,7 +126,7 @@ namespace WindowsFormsApplication1
                     using (MySqlCommand cmd = new MySqlCommand(insertQuery, conn))
                     {
                         // Adding parameters
-                        cmd.Parameters.AddWithValue("@orderID", order.orderID);
+                        cmd.Parameters.AddWithValue("@orderID", availableID);
                         cmd.Parameters.AddWithValue("@productID", order.productID);
                         cmd.Parameters.AddWithValue("@product", order.productName); // Correct field name
                         cmd.Parameters.AddWithValue("@quantity", order.quantity);
@@ -106,6 +139,8 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
+            ReceiptControl rc = new ReceiptControl(availableID);
+            rc.ExportAsImage("C:\\Users\\Arlzer\\Documents\\receipt.png");
         }
     }
 }
