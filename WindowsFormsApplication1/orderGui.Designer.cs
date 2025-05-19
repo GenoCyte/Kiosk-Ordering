@@ -46,25 +46,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.doneBtn = new System.Windows.Forms.Button();
-            this.ramenPanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.ramenBtn7 = new System.Windows.Forms.Button();
-            this.ramenBtn4 = new System.Windows.Forms.Button();
-            this.ramenBtn5 = new System.Windows.Forms.Button();
-            this.ramenBtn6 = new System.Windows.Forms.Button();
-            this.ramenBtn3 = new System.Windows.Forms.Button();
-            this.ramenBtn2 = new System.Windows.Forms.Button();
-            this.ramenBtn1 = new System.Windows.Forms.Button();
-            this.ddPanel = new System.Windows.Forms.Panel();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.dineLocLabel = new System.Windows.Forms.Label();
             this.changePanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -75,11 +57,10 @@
             this.productPrice = new System.Windows.Forms.Label();
             this.productName = new System.Windows.Forms.Label();
             this.productImage = new System.Windows.Forms.PictureBox();
+            this.ramenPanel = new System.Windows.Forms.TableLayoutPanel();
             this.orderHeader.SuspendLayout();
             this.totalOrderPanel.SuspendLayout();
             this.noOrdersPanel.SuspendLayout();
-            this.ramenPanel.SuspendLayout();
-            this.ddPanel.SuspendLayout();
             this.changePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productImage)).BeginInit();
             this.SuspendLayout();
@@ -258,190 +239,15 @@
             this.doneBtn.UseVisualStyleBackColor = false;
             this.doneBtn.Click += new System.EventHandler(this.doneBtn_Click);
             // 
-            // ramenPanel
-            // 
-            this.ramenPanel.Controls.Add(this.label3);
-            this.ramenPanel.Controls.Add(this.ramenBtn7);
-            this.ramenPanel.Controls.Add(this.ramenBtn4);
-            this.ramenPanel.Controls.Add(this.ramenBtn5);
-            this.ramenPanel.Controls.Add(this.ramenBtn6);
-            this.ramenPanel.Controls.Add(this.ramenBtn3);
-            this.ramenPanel.Controls.Add(this.ramenBtn2);
-            this.ramenPanel.Controls.Add(this.ramenBtn1);
-            this.ramenPanel.Location = new System.Drawing.Point(183, 117);
-            this.ramenPanel.Name = "ramenPanel";
-            this.ramenPanel.Size = new System.Drawing.Size(485, 410);
-            this.ramenPanel.TabIndex = 9;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 15);
+            this.label3.Location = new System.Drawing.Point(186, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 25);
             this.label3.TabIndex = 17;
             this.label3.Text = "Ramen";
-            // 
-            // ramenBtn7
-            // 
-            this.ramenBtn7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ramenBtn7.BackgroundImage")));
-            this.ramenBtn7.Location = new System.Drawing.Point(33, 304);
-            this.ramenBtn7.Name = "ramenBtn7";
-            this.ramenBtn7.Size = new System.Drawing.Size(100, 100);
-            this.ramenBtn7.TabIndex = 16;
-            this.ramenBtn7.UseVisualStyleBackColor = true;
-            this.ramenBtn7.Click += new System.EventHandler(this.ramenBtn7_Click);
-            // 
-            // ramenBtn4
-            // 
-            this.ramenBtn4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ramenBtn4.BackgroundImage")));
-            this.ramenBtn4.Location = new System.Drawing.Point(33, 178);
-            this.ramenBtn4.Name = "ramenBtn4";
-            this.ramenBtn4.Size = new System.Drawing.Size(100, 100);
-            this.ramenBtn4.TabIndex = 15;
-            this.ramenBtn4.UseVisualStyleBackColor = true;
-            this.ramenBtn4.Click += new System.EventHandler(this.ramenBtn4_Click);
-            // 
-            // ramenBtn5
-            // 
-            this.ramenBtn5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ramenBtn5.BackgroundImage")));
-            this.ramenBtn5.Location = new System.Drawing.Point(191, 178);
-            this.ramenBtn5.Name = "ramenBtn5";
-            this.ramenBtn5.Size = new System.Drawing.Size(100, 100);
-            this.ramenBtn5.TabIndex = 14;
-            this.ramenBtn5.UseVisualStyleBackColor = true;
-            this.ramenBtn5.Click += new System.EventHandler(this.ramenBtn5_Click);
-            // 
-            // ramenBtn6
-            // 
-            this.ramenBtn6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ramenBtn6.BackgroundImage")));
-            this.ramenBtn6.Location = new System.Drawing.Point(347, 178);
-            this.ramenBtn6.Name = "ramenBtn6";
-            this.ramenBtn6.Size = new System.Drawing.Size(100, 100);
-            this.ramenBtn6.TabIndex = 13;
-            this.ramenBtn6.UseVisualStyleBackColor = true;
-            this.ramenBtn6.Click += new System.EventHandler(this.ramenBtn6_Click);
-            // 
-            // ramenBtn3
-            // 
-            this.ramenBtn3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ramenBtn3.BackgroundImage")));
-            this.ramenBtn3.Location = new System.Drawing.Point(347, 53);
-            this.ramenBtn3.Name = "ramenBtn3";
-            this.ramenBtn3.Size = new System.Drawing.Size(100, 100);
-            this.ramenBtn3.TabIndex = 12;
-            this.ramenBtn3.UseVisualStyleBackColor = true;
-            this.ramenBtn3.Click += new System.EventHandler(this.ramenBtn3_Click);
-            // 
-            // ramenBtn2
-            // 
-            this.ramenBtn2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ramenBtn2.BackgroundImage")));
-            this.ramenBtn2.Location = new System.Drawing.Point(191, 53);
-            this.ramenBtn2.Name = "ramenBtn2";
-            this.ramenBtn2.Size = new System.Drawing.Size(100, 100);
-            this.ramenBtn2.TabIndex = 11;
-            this.ramenBtn2.UseVisualStyleBackColor = true;
-            this.ramenBtn2.Click += new System.EventHandler(this.ramenBtn2_Click);
-            // 
-            // ramenBtn1
-            // 
-            this.ramenBtn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ramenBtn1.BackgroundImage")));
-            this.ramenBtn1.Location = new System.Drawing.Point(33, 53);
-            this.ramenBtn1.Name = "ramenBtn1";
-            this.ramenBtn1.Size = new System.Drawing.Size(100, 100);
-            this.ramenBtn1.TabIndex = 10;
-            this.ramenBtn1.UseVisualStyleBackColor = true;
-            this.ramenBtn1.Click += new System.EventHandler(this.ramenBtn1_Click);
-            // 
-            // ddPanel
-            // 
-            this.ddPanel.Controls.Add(this.button15);
-            this.ddPanel.Controls.Add(this.button14);
-            this.ddPanel.Controls.Add(this.button13);
-            this.ddPanel.Controls.Add(this.button12);
-            this.ddPanel.Controls.Add(this.button11);
-            this.ddPanel.Controls.Add(this.button10);
-            this.ddPanel.Controls.Add(this.button9);
-            this.ddPanel.Controls.Add(this.label4);
-            this.ddPanel.Controls.Add(this.button8);
-            this.ddPanel.Location = new System.Drawing.Point(183, 116);
-            this.ddPanel.Name = "ddPanel";
-            this.ddPanel.Size = new System.Drawing.Size(485, 410);
-            this.ddPanel.TabIndex = 10;
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(191, 304);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(100, 100);
-            this.button15.TabIndex = 25;
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(33, 304);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(100, 100);
-            this.button14.TabIndex = 24;
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(347, 177);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(100, 100);
-            this.button13.TabIndex = 23;
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(191, 178);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(100, 100);
-            this.button12.TabIndex = 22;
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(33, 178);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(100, 100);
-            this.button11.TabIndex = 21;
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(347, 53);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(100, 100);
-            this.button10.TabIndex = 20;
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(191, 53);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(100, 100);
-            this.button9.TabIndex = 19;
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(33, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 25);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Drinks and Desserts";
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(33, 53);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 100);
-            this.button8.TabIndex = 10;
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // dineLocLabel
             // 
@@ -465,10 +271,11 @@
             this.changePanel.Controls.Add(this.productPrice);
             this.changePanel.Controls.Add(this.productName);
             this.changePanel.Controls.Add(this.productImage);
-            this.changePanel.Location = new System.Drawing.Point(0, 356);
+            this.changePanel.Location = new System.Drawing.Point(-2, 359);
             this.changePanel.Name = "changePanel";
             this.changePanel.Size = new System.Drawing.Size(682, 180);
             this.changePanel.TabIndex = 12;
+            this.changePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.changePanel_Paint);
             // 
             // button1
             // 
@@ -557,15 +364,29 @@
             this.productImage.TabIndex = 0;
             this.productImage.TabStop = false;
             // 
+            // ramenPanel
+            // 
+            this.ramenPanel.AutoScroll = true;
+            this.ramenPanel.ColumnCount = 3;
+            this.ramenPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ramenPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ramenPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.ramenPanel.Location = new System.Drawing.Point(183, 156);
+            this.ramenPanel.Name = "ramenPanel";
+            this.ramenPanel.RowCount = 2;
+            this.ramenPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.ramenPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.ramenPanel.Size = new System.Drawing.Size(480, 376);
+            this.ramenPanel.TabIndex = 18;
+            // 
             // orderGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.changePanel);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dineLocLabel);
             this.Controls.Add(this.noOrdersPanel);
-            this.Controls.Add(this.ddPanel);
-            this.Controls.Add(this.ramenPanel);
             this.Controls.Add(this.doneBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.totalOrderPanel);
@@ -574,6 +395,7 @@
             this.Controls.Add(this.ramenBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bannerPanel);
+            this.Controls.Add(this.ramenPanel);
             this.Name = "orderGui";
             this.Size = new System.Drawing.Size(682, 745);
             this.orderHeader.ResumeLayout(false);
@@ -582,10 +404,6 @@
             this.totalOrderPanel.PerformLayout();
             this.noOrdersPanel.ResumeLayout(false);
             this.noOrdersPanel.PerformLayout();
-            this.ramenPanel.ResumeLayout(false);
-            this.ramenPanel.PerformLayout();
-            this.ddPanel.ResumeLayout(false);
-            this.ddPanel.PerformLayout();
             this.changePanel.ResumeLayout(false);
             this.changePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productImage)).EndInit();
@@ -604,25 +422,7 @@
         private System.Windows.Forms.Panel totalOrderPanel;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button doneBtn;
-        private System.Windows.Forms.Panel ramenPanel;
-        private System.Windows.Forms.Button ramenBtn1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button ramenBtn7;
-        private System.Windows.Forms.Button ramenBtn4;
-        private System.Windows.Forms.Button ramenBtn5;
-        private System.Windows.Forms.Button ramenBtn6;
-        private System.Windows.Forms.Button ramenBtn3;
-        private System.Windows.Forms.Button ramenBtn2;
-        private System.Windows.Forms.Panel ddPanel;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label totalPriceLabel;
@@ -641,5 +441,6 @@
         private System.Windows.Forms.Button subBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel ramenPanel;
     }
 }

@@ -31,3 +31,20 @@ C:\Users\Arlzer\Documents\Visual Studio 2015\Projects\Kiosk-Ordering\WindowsForm
 C:\Users\Arlzer\Documents\Visual Studio 2015\Projects\Kiosk-Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.thankyouPanel.resources
 C:\Users\Arlzer\Documents\Visual Studio 2015\Projects\Kiosk-Ordering\WindowsFormsApplication1\obj\Debug\GUI Design.csproj.GenerateResource.Cache
 C:\Users\Arlzer\Documents\Visual Studio 2015\Projects\Kiosk-Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ReceiptControl.resources
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\bin\Debug\MySql.Data.xml
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\GUI Design.csprojResolveAssemblyReference.cache
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.dinetakePanel.resources
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.orderGui.resources
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.reviewOrder.resources
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.startGui.resources
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.thankyouPanel.resources
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ReceiptControl.resources
+C:\Users\Ampong\Documents\Visual Studio 2015\Projects\Kiosk_Ordering\WindowsFormsApplication1\obj\Debug\GUI Design.csproj.GenerateResource.Cache

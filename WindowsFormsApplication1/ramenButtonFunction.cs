@@ -12,7 +12,7 @@ namespace WindowsFormsApplication1
 {
     class ramenButtonFunction
     {
-        public void btn1(int dineLoc, int qty)
+        /*public void btn1(int dineLoc, int qty)
         {
             try
             {
@@ -585,6 +585,6 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Error: " + ex.Message);
             }
 
-        }
+        }*/
     }
 }

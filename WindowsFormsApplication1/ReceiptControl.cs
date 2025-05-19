@@ -30,8 +30,8 @@ namespace WindowsFormsApplication1
             using (MySqlConnection conn = new MySqlConnection(connStr))
             {
                 string query = @"
-            SELECT product, quantity 
-            FROM ordertable";
+                    SELECT product, quantity 
+                    FROM ordertable";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 conn.Open();

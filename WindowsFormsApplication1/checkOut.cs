@@ -140,7 +140,7 @@ namespace WindowsFormsApplication1
                 }
             }
             ReceiptControl rc = new ReceiptControl(availableID);
-            rc.ExportAsImage("C:\\Users\\Arlzer\\Documents\\receipt.png");
+            rc.ExportAsImage("C:\\Users\\Ampong\\Documents\\order_number.png");
         }
     }
 }

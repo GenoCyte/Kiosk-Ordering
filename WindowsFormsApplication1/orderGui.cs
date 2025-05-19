@@ -39,8 +39,8 @@ namespace WindowsFormsApplication1
             {
                 dineLocLabel.Text = "Take-Out";
             }
+            LoadRamenButtons();
             changePanel.Hide();
-            ddPanel.Hide();
             totalOrderShow();
         }
 
@@ -51,55 +51,161 @@ namespace WindowsFormsApplication1
 
         private void ramenBtn_Click(object sender, EventArgs e)
         {
-            ddPanel.Hide();
             ramenPanel.Show();
         }
         private void dndBtn_Click(object sender, EventArgs e)
         {
             ramenPanel.Hide();
-            ddPanel.Show();
         }
 
-        private void ramenBtn1_Click(object sender, EventArgs e)
+        private void LoadRamenButtons()
         {
-            changePanel.Show();
-            changeQuantity("r1");
+            string connStr = "Server=localhost;Database=pos_database;Uid=root;Pwd=;";
+            string query = "SELECT productId, picture FROM ramen_product";
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connStr))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string productId = reader["productId"].ToString();
+                            Image productImg;
+
+                            // Load image from database
+                            if (reader["picture"] != DBNull.Value)
+                            {
+                                byte[] imgBytes = (byte[])reader["picture"];
+                                using (MemoryStream ms = new MemoryStream(imgBytes))
+                                {
+                                    productImg = Image.FromStream(ms);
+                                }
+                            }
+                            else
+                            {
+                                productImg = Properties.Resources.PlaceHolder;
+                            }
+
+                            // Create PictureBox
+                            PictureBox pic = new PictureBox();
+                            pic.Size = new Size(105, 105);
+                            pic.SizeMode = PictureBoxSizeMode.Zoom;
+                            pic.Image = productImg;
+                            pic.Margin = new Padding(10);
+                            pic.Cursor = Cursors.Hand;
+                            pic.Tag = productId;
+                            pic.Click += RamenButton_Click;
+
+                            // Add to the panel
+                            ramenPanel.Controls.Add(pic);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to load ramen buttons: " + ex.Message);
+            }
         }
 
-        private void ramenBtn2_Click(object sender, EventArgs e)
+        private void RamenButton_Click(object sender, EventArgs e)
         {
-            changePanel.Show();
-            changeQuantity("r2");
+            PictureBox clickedPic = sender as PictureBox;
+            if (clickedPic != null && clickedPic.Tag != null)
+            {
+                selectedProductId = clickedPic.Tag.ToString();
+                changePanel.Show();
+                changeQuantity(selectedProductId);
+            }
         }
 
-        private void ramenBtn3_Click(object sender, EventArgs e)
+        private void RamenButton_Function()
         {
-            changePanel.Show();
-            changeQuantity("r3");
-        }
+            string productId = selectedProductId;
+            try
+            {
+                string productName = "";
+                int productPrice = 0;
 
-        private void ramenBtn4_Click(object sender, EventArgs e)
-        {
-            changePanel.Show();
-            changeQuantity("r4");
-        }
+                string connStr = "Server=localhost;Database=pos_database;Uid=root;Pwd=;";
+                using (MySqlConnection conn = new MySqlConnection(connStr))
+                {
+                    conn.Open();
 
-        private void ramenBtn5_Click(object sender, EventArgs e)
-        {
-            changePanel.Show();
-            changeQuantity("r5");
-        }
+                    // 1. Get product info
+                    string productQuery = "SELECT name, price FROM ramen_product WHERE productID = @ProductID";
+                    using (MySqlCommand cmd = new MySqlCommand(productQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ProductID", productId);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                productName = reader["name"].ToString();
+                                productPrice = Convert.ToInt32(reader["price"]);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Product not found.");
+                                return;
+                            }
+                        }
+                    }
 
-        private void ramenBtn6_Click(object sender, EventArgs e)
-        {
-            changePanel.Show();
-            changeQuantity("r6");
-        }
+                    string checkOrderQuery = "SELECT quantity FROM ordertable WHERE productID = @ProductID";
+                    using (MySqlCommand checkCmd = new MySqlCommand(checkOrderQuery, conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@ProductID", productId);
+                        TimeSpan time = DateTime.Now.TimeOfDay;
 
-        private void ramenBtn7_Click(object sender, EventArgs e)
-        {
-            changePanel.Show();
-            changeQuantity("r7");
+                        using (MySqlDataReader reader = checkCmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int currentQty = Convert.ToInt32(reader["quantity"]);
+                                int newQty = currentQty + currentQuantity;
+                                int newSubtotal = productPrice * newQty;
+
+                                reader.Close(); // Must close reader before executing another command on the same connection
+
+                                string updateQuery = "UPDATE ordertable SET quantity = @qty, subTotal = @sub WHERE productID = @ProductID";
+                                using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn))
+                                {
+                                    updateCmd.Parameters.AddWithValue("@qty", newQty);
+                                    updateCmd.Parameters.AddWithValue("@sub", newSubtotal);
+                                    updateCmd.Parameters.AddWithValue("@ProductID", productId);
+                                    updateCmd.ExecuteNonQuery();
+                                }
+                            }
+                            else
+                            {
+                                reader.Close(); // Must close reader before executing another command
+                                string insertQuery = "INSERT INTO ordertable (productID, product, price, quantity, subTotal, dine_loc) VALUES (@productID, @name, @price, @qty, @sub, @dine)";
+                                using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
+                                {
+                                    insertCmd.Parameters.AddWithValue("@productID", productId);
+                                    insertCmd.Parameters.AddWithValue("@name", productName);
+                                    insertCmd.Parameters.AddWithValue("@price", productPrice);
+                                    insertCmd.Parameters.AddWithValue("@qty", currentQuantity);
+                                    insertCmd.Parameters.AddWithValue("@sub", productPrice * currentQuantity);
+                                    insertCmd.Parameters.AddWithValue("@dine", dineLoc);
+                                    insertCmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                    }
+
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex);
+            }
         }
 
         private void changeQuantity(string productId)
@@ -252,34 +358,7 @@ namespace WindowsFormsApplication1
 
         private void addItemBtn_Click(object sender, EventArgs e)
         {
-            switch (selectedProductId)
-            {
-                case "r1":
-                    btn.btn1(dineLoc, currentQuantity);
-                    break;
-                case "r2":
-                    btn.btn2(dineLoc, currentQuantity);
-                    break;
-                case "r3":
-                    btn.btn3(dineLoc, currentQuantity);
-                    break;
-                case "r4":
-                    btn.btn4(dineLoc, currentQuantity);
-                    break;
-                case "r5":
-                    btn.btn5(dineLoc, currentQuantity);
-                    break;
-                case "r6":
-                    btn.btn6(dineLoc, currentQuantity);
-                    break;
-                case "r7":
-                    btn.btn7(dineLoc, currentQuantity);
-                    break;
-                default:
-                    MessageBox.Show("Unknown product selected.");
-                    return;
-            }
-
+            RamenButton_Function();
             totalOrderShow();
             changePanel.Hide();
             currentQuantity = 1;
@@ -288,6 +367,11 @@ namespace WindowsFormsApplication1
         private void button1_Click_1(object sender, EventArgs e)
         {
             changePanel.Hide();
+        }
+
+        private void changePanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

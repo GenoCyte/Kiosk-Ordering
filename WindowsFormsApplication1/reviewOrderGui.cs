@@ -254,5 +254,10 @@ namespace WindowsFormsApplication1
             co.DeleteOrderTable();
             OnSwitchToTy?.Invoke();
         }
+
+        private void orderPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

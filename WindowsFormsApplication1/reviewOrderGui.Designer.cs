@@ -44,6 +44,7 @@
             this.orderPanel.Name = "orderPanel";
             this.orderPanel.Size = new System.Drawing.Size(641, 504);
             this.orderPanel.TabIndex = 0;
+            this.orderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.orderPanel_Paint);
             // 
             // panel2
             // 
